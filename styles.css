@@ -115,13 +115,14 @@ height: 100vh;
 .container{
     width:1140px;
     margin:auto;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 .row,
 .row2{
     display: flex;
     height:450px;
     justify-content: space-between;
-    background-color: #686868;
+
     color: #fff;
     align-content: stretch;
 }
@@ -224,35 +225,27 @@ flex:1
 }
 .section2{
     color: #fff;
-    height:1400px;
-    background-color: #950740;
-    background-image:none;
+    height:100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.34), rgba(32, 32, 32, 0.64)), url("images/architecture-22039_1280.jpg");
+    background-size:cover;
     padding-top:60px;
 }
 .section2>.container{
-
-    height: 800px;
-    background-color: #000;
-    justify-content:space-between;
-}
-
-
-.section2>.container,
-.section3>.container{
     display: flex;
     padding:40px;
-
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.75);
 }
+
 .support{
     flex:2;
-
     display: flex;
     flex-direction:column;
 }
 .support h2{
     padding:10px;
     padding-bottom:0;
-    border-left:4px solid #950740;
+    border-left:4px solid #002066;
     margin-bottom:20px;
 }
 .support p{
@@ -264,10 +257,7 @@ flex:1
     padding:12px;
 }
 .supportBox{
-
     text-align: center;
-
-
 }
 .supportBox p{
     padding:20px;
@@ -276,7 +266,7 @@ flex:1
 
 .supportBox i{
     margin-top:20px;
-    color: #950740;
+    color: #002066;
     font-size:70px;
 
 }
@@ -314,18 +304,12 @@ flex:1
 
 /*-----------------SECTION3-----------------------------*/
 .section3{
+
     height: 100vh;
     background-color: #343434;
 }
 
-.section3 h1{
-    font-weight:100;
-    position: relative;
-    padding:50px;
-    margin-left:50%;
-    transform:translateX(-40%);
-    color: #fff;
-}
+
 .sliderWrapper ul{
     list-style: none;
     margin:0;
@@ -340,7 +324,7 @@ flex:1
     overflow: hidden;
     margin-left:50%;
     transform: translateX(-50%);
-    margin-top:50px;
+    padding-top:50px;
 }
 
  ul.s-thumbs li {
