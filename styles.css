@@ -5,7 +5,7 @@
 }
 html,
 body{
-    background-color
+
 
     font-size: 18px;
     color: #000;
@@ -40,7 +40,7 @@ body{
     border-right:1px solid #f4f4f8;
 }
 .nav>li{
-    padding:35px;
+    padding:25px;
 
 }
 .nav>li>a{
@@ -48,21 +48,20 @@ body{
     font-size:18px;
     text-transform: uppercase;
     text-decoration: none;
-    color: #f4f4f8;
+    color: #000000;
 }
 .nav>li>a:hover{
      box-shadow:2px 2px 7px rgba(226, 226, 230, 0.07);
  }
-.nav>li>a:hover .navTitle{
-    display: inline-block;
-    animation:slideLeft 2s;
-}
+
 .nav>li>a>i{
     color: blue;
+    font-size:150%;
+    display: inline-block;
 }
-.navTitle{
-    display: none;
-
+.nav>li>a>.navTitle{
+    visibility: visible;
+    color: #fff;
 }
 
 /*-------------END SIDEBAR---------------------*/
