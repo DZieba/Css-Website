@@ -5,9 +5,8 @@
 }
 html,
 body{
-    background-color: #686868;
-    font-family: 'Roboto Slab', serif;
-    font-weight:300;
+    background-color
+
     font-size: 18px;
     color: #000;
 }
@@ -35,14 +34,14 @@ body{
 .nav{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     list-style: none;
     margin:15px auto;
     border-right:1px solid #f4f4f8;
 }
 .nav>li{
     padding:35px;
-    text-align: justify;
+
 }
 .nav>li>a{
     font-weight:700;
@@ -52,7 +51,18 @@ body{
     color: #f4f4f8;
 }
 .nav>li>a:hover{
-    box-shadow:2px 2px 7px rgba(226, 226, 230, 0.07);
+     box-shadow:2px 2px 7px rgba(226, 226, 230, 0.07);
+ }
+.nav>li>a:hover .navTitle{
+    display: inline-block;
+    animation:slideLeft 2s;
+}
+.nav>li>a>i{
+    color: blue;
+}
+.navTitle{
+    display: none;
+
 }
 
 /*-------------END SIDEBAR---------------------*/
@@ -85,21 +95,20 @@ span.count{
     border-radius: 20%;
 
 }
-.strong{
-    color: red;
-}
-
-
 .hello-box{
     color: #fff;
     display: flex;
-    width:600px;
-    height:400px;
-    background-color: rgba(16, 102, 97, 0.64);
-    align-self: flex-end;
+    width:auto;
+    text-align: center;
     box-shadow: 4px 4px 13px 2px #373737;
-    margin:0 50px 50px 0;
+    margin:40px auto;
+    padding:100px;
+
 }
+.strong{
+    color: #7a1705;
+}
+
 .texts{
     margin:auto;
 }
@@ -225,15 +234,16 @@ flex:1
 }
 .section2{
     color: #fff;
-    height:100vh;
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.34), rgba(32, 32, 32, 0.64)), url("images/architecture-22039_1280.jpg");
     background-size:cover;
     padding-top:60px;
+    padding-bottom:40px;
 }
 .section2>.container{
     display: flex;
     padding:40px;
-    height: 800px;
+
     background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -440,24 +450,22 @@ ul.s-slides li.show:target{
 }
 
 #navigationMenu li{
-    height:45px;
     width: 40px;
     overflow: hidden;
-
 }
-#navigationMenu span{
-    position: relative;
-    left:18px;
+#navigationMenu>li>a>span{
+    margin-left:40px;
+    margin-top:-34px;
     border:1px solid red;
-    visibility: hidden;
-
-
 }
+
 #navigationMenu  a{
     text-decoration: none;
+    padding:0;
     ;
 }
 #navigationMenu i{
+    display: inline-block;
     padding:5px;
     margin:10px;
     background-color: #fff;
@@ -467,32 +475,101 @@ ul.s-slides li.show:target{
    visibility: visible;
 }
 #navigationMenu li:hover {
-    width:150px;
+
     background-color: white;
     animation: opa 0.5s;
 }
 
 @media (max-width: 720px) {
 
+    .wrapper{
+        height:100vh;
+        flex-direction:column;
+    }
+.aside{
+    display: flex;
+    height: auto;
+}
+    .header_img{
+        margin:0 auto;
+
+        width:60px;
+    }
+    .nav{
+        flex-direction:row;
+        align-self: center;
+        margin:0;
+        border:none;
+    }
+
+    .nav>li{
+        padding:0px;
+
+    }
+    .nav>li>a>i{
+        color: #330c7a;
+        text-align: center;
+    }
+    .nav>li>a{
+        font-size:14px;
+        text-align: center;
+
+    }
+.nav>li>a>.navTitle{
+    color: #e2e2e6;
+    display: inline-block;
+    
+}
+    .main{
+        flex-grow:1;
+        justify-content:center;
+        height:auto;
+    }
+    .main>.title>h1{
+    font-size:140%;
+    color: #e2e2e6;
+}
+    .counting{
+        font-size:120%;
+        visibility: hidden;
+        margin-left:-80px;
+    }
+    .counting>span{
+        visibility: visible;
+
+    }
+    .hello-box{
+        padding:0;
+
+    }
+
+
     .section,
     .section1,
     .section2{
         height: auto;
-    }
+        flex-direction:column;
 
+    }
+.container{
+    width:100%;
+    padding:30px 10px;
+}
 
 
     .row,
     .row2{
         flex-direction:column;
         height:auto;
-
+        width:100%;
+        overflow: hidden;
         align-content: center;
+
     }
     .photo{
         flex:1;
-        height: 90%;
-        margin:15px;
+        width:100%;
+
     }
 
 
@@ -504,12 +581,53 @@ ul.s-slides li.show:target{
         font-size:90%;
         padding:20px;
     }
-    .section2>.container{
-        height:auto;
-    }
+
     .supportRow{
         flex-direction:column;
     }
+
+
+    .section1{
+        height: 50vh;
+    }
+
+    .myimg{
+        position: absolute;
+        height:50vh;
+    }
+    .bar >li {
+        position: relative;
+        line-height: 50px;
+        color: #950740;
+    }
+
+.section2{
+    padding-top:0;
+    padding-bottom:0;
+}
+    .section2>.container{
+        display: flex;
+        flex-direction:column;
+    }
+    .contentplace{
+        flex-direction:column;
+    }
+    .imgPlace {
+        position: static;
+        margin: 0 auto;
+
+
+    }
+    .content{
+        height:auto;
+        position:relative;
+        margin:0 auto;
+        margin-bottom:30px;
+        border:4px solid #11a81f;
+
+    }
+
+
 }
 
 
