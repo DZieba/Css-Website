@@ -43,6 +43,115 @@ function slideShow() {
 };
 
 
+$(".anch1").click(function () {
+    $('html,body').animate(
+        {
+            scrollTop: $('.wrapper').offset().top
+        },'slow'
+    );
+
+})
+
+/*----------------DYNAMIC TABLE--------------------------------*/
+
+var myTable=document.getElementById("myTable");
+var tableLength=document.getElementById("myTable").rows.length;
+
+function countTotals() {
+
+    for (var i = 1; i < tableLength; i++) {
+        var aa = Number(document.getElementById("myTable").rows[i].cells[1].innerText);
+        var bb = Number(document.getElementById("myTable").rows[i].cells[2].innerText);
+        var x = document.getElementById("myTable").rows[i].cells[3];
+        x.innerHTML = aa * bb;
+        console.log(x);
+
+    }
+}
+
+
+var calculateButtons=document.getElementsByClassName('calcButton');
+
+function calculate(){
+
+for(var i=0; i<tableLength; i++){
+
+        myTable.rows[i].onclick=function () {
+            var rIndex=this.rowIndex;
+            console.log(rIndex);
+        }
+
+
+/*
+        var aa = Number(document.getElementById("myTable").rows[i].cells[1].innerText);
+        var bb = Number(document.getElementById("myTable").rows[i].cells[2].innerText);
+        var x = document.getElementById("myTable").rows[i+1].cells[3];
+        x.innerHTML = aa * bb;
+*/
+    }
+
+
+
+}
+calculate();
+
+
+
+/*function doTest(){
+
+    var input1 = document.getElementById('form1').getElementsByTagName('input');
+    for(var i=0; i<input1.length; i++) {
+        results.push(input1[i].value);
+    }
+   return results;
+}
+/*var input2=
+var input3=*/
+var results=[];
+function addItem() {
+    var input1 = document.getElementById('form1').getElementsByTagName('input');
+var row=myTable.insertRow(tableLength);
+var cell=row.insertCell(0);
+var cell2=row.insertCell(1);
+var cell3=row.insertCell(2);
+var cell4=row.insertCell(3);
+
+
+    for(var i=0; i<input1.length; i++) {
+        results.push(input1[i].value);
+    }
+    cell.innerHTML=results[0];
+    cell2.innerHTML=results[1];
+    cell3.innerHTML=results[2];
+cell4.innerHTML='<button class="calcButton" type="button" >Calculate</button>';
+
+}
+
+function displaySelectedRow() {
+    
+}
+
+
+
+
+
+/*
+$(window).scroll(function() {
+    if ($(document).scrollTop() > 100) {
+        $('.wrapper').addClass('fixed');
+        $('.aside').addClass('fixed');
+        $('.nav').addClass('newClas1');
+
+    } else {
+
+
+    }
+});
+
+*/
+
+
+
 /*
 $(".section1 > img:gt(0)").hide();
 

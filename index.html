@@ -17,11 +17,11 @@
     <div class="aside">
         <img class="header_img" src="images/logo2.png">
 <ul class="nav">
-    <li><a href="#"> <i class="fa fa-cloud"></i><div class="navTitle">Think</div></a> </li>
-    <li><a href="#"><i class="fa fa-comment-o"></i><div class="navTitle">Plan</div></a> </li>
-    <li><a href="#"><i class="fa fa-moon-o"></i><div class="navTitle">Dream</div></a> </li>
-    <li><a href="#"><i class="fa fa-briefcase"></i><div class="navTitle">Create</div></a> </li>
-    <li><a href="#"><i class="fa fa-bullhorn"></i><div class="navTitle">Share</div></a> </li>
+    <li><a href="#" class="anch1"> <i class="fa fa-cloud"></i><div class="navTitle">Think</div></a> </li>
+    <li><a href="#" class="anch2"><i class="fa fa-comment-o"></i><div class="navTitle">Plan</div></a> </li>
+    <li><a href="#" class="anch3"><i class="fa fa-moon-o"></i><div class="navTitle">Dream</div></a> </li>
+    <li><a href="#" class="anch4"><i class="fa fa-briefcase"></i><div class="navTitle">Create</div></a> </li>
+    <li><a href="#" class="anch5"><i class="fa fa-bullhorn"></i><div class="navTitle">Share</div></a> </li>
 </ul>
 
     </div>
@@ -187,9 +187,70 @@
         </ul>
 
 </div>
+</div>
+<div class="section4">
+    <div class="sectionTitle">
+    <h1>Dynamic Table</h1>
+    <h2>Fill in the table with all necessary items for your journey to the New World</h2>
+    </div>
+    <div class="container">
+        <div class="tablePlace">
+
+        <button onclick="countTotals()">Count Totals</button>
+<table id="myTable">
+    <thead>
+    <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> chocolate</td>
+        <td> 12</td>
+        <td> 3</td>
+        <td><button class="calcButton" id="calcButton" type="button" >Calculate</button></td>
+    </tr>
+    <tr>
+        <td> cookies</td>
+        <td> 8</td>
+        <td> 4</td>
+        <td><button class="calcButton" type="button" >Calculate</button> </td>
+    </tr>
+    <tr>
+        <td> waffles</td>
+        <td> 8</td>
+        <td> 6</td>
+        <td><button class="calcButton" type="button" >Calculate</button></td>
+    </tr>
+    <tr>
+        <td> candies</td>
+        <td> 15</td>
+        <td> 4</td>
+        <td><button class="calcButton" type="button">Calculate</button></td>
+    </tr>
 
 
+    </tbody>
+</table>
+        </div>
+        <div class="inputPlace">
+            <form id="form1">
+            <label>Item</label>
+            <input type="text">
+            <label>Quantity</label>
+            <input type="number">
+            <label>Price</label>
+            <input type="number">
 
+            <button type="button" onclick="addItem()">Add</button>
+            <button type="button" onclick="doTest()">Change</button>
+            <button type="button">Reset</button>
+            </form>
+        </div>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
