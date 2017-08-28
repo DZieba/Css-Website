@@ -4,7 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="jquery.js"></script>
+   <script src="jquery.js"></script>
+
+    <script src="jquery-table2excel-master/dist/jquery.table2excel.js"></script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -211,43 +214,47 @@
         <td> chocolate</td>
         <td> 12</td>
         <td> 3</td>
-        <td><button class="calcButton" id="calcButton" type="button" >Calculate</button></td>
+        <td></td>
     </tr>
     <tr>
         <td> cookies</td>
         <td> 8</td>
         <td> 4</td>
-        <td><button class="calcButton" type="button" >Calculate</button> </td>
+        <td> </td>
     </tr>
     <tr>
         <td> waffles</td>
         <td> 8</td>
         <td> 6</td>
-        <td><button class="calcButton" type="button" >Calculate</button></td>
+        <td> </td>
+
+
     </tr>
     <tr>
         <td> candies</td>
         <td> 15</td>
         <td> 4</td>
-        <td><button class="calcButton" type="button">Calculate</button></td>
+        <td></td>
     </tr>
 
 
     </tbody>
 </table>
+            <button onclick="ExportToExcel()">Export to Excel</button>
         </div>
         <div class="inputPlace">
             <form id="form1">
             <label>Item</label>
-            <input type="text">
+            <input type="text" onblur="nameValidation()">
             <label>Quantity</label>
-            <input type="number">
+            <input type="number" onblur="formValidation(1)">
             <label>Price</label>
-            <input type="number">
+            <input type="number" onblur="formValidation(2)">
 
-            <button type="button" onclick="addItem()">Add</button>
-            <button type="button" onclick="doTest()">Change</button>
-            <button type="button">Reset</button>
+            <button id="addButton" type="button" onclick="addItem()">Add</button>
+            <button type="button" onclick="editData()">Change</button>
+            <button type="button" onclick="resetItem()">Reset</button>
+
             </form>
         </div>
     </div>

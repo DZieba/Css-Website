@@ -19,7 +19,7 @@ var x=setInterval(function () {
     document.getElementById('hours').innerHTML=allData.hours;
     document.getElementById('minutes').innerHTML=allData.minutes ;
     document.getElementById('seconds').innerHTML=allData.seconds;
-    console.log(allData); },1000);
+     },1000);
 
 $(document).ready(function () {
   slideShow();
@@ -56,84 +56,119 @@ $(".anch1").click(function () {
 
 var myTable=document.getElementById("myTable");
 var tableLength=document.getElementById("myTable").rows.length;
+var rIndex = '';
+var inputs = document.getElementById('form1').getElementsByTagName('input');
 
 function countTotals() {
 
-    for (var i = 1; i < tableLength; i++) {
-        var aa = Number(document.getElementById("myTable").rows[i].cells[1].innerText);
-        var bb = Number(document.getElementById("myTable").rows[i].cells[2].innerText);
-        var x = document.getElementById("myTable").rows[i].cells[3];
+    for (var i = 1; i < document.getElementById('myTable').rows.length; i++) {
+
+        var aa = Number(myTable.rows[i].cells[1].innerText);
+        var bb = Number(myTable.rows[i].cells[2].innerText);
+
+        var x = myTable.rows[i].cells[3];
         x.innerHTML = aa * bb;
         console.log(x);
 
     }
 }
 
+var editSelectedRow=(function () {
+    var input1 = inputs[0];
+    var input2 = inputs[1];
+    var input3 = inputs[2];
 
-var calculateButtons=document.getElementsByClassName('calcButton');
+return function () {
+    for (var i = 0; i < document.getElementById('myTable').rows.length; i++) {
 
-function calculate(){
+        myTable.rows[i].onclick = function () {
 
-for(var i=0; i<tableLength; i++){
+            rIndex = this.rowIndex;
+            input1.value = this.cells[0].innerHTML;
+            input2.value = Number(this.cells[1].innerHTML);
+            input3.value = Number(this.cells[2].innerHTML);
 
-        myTable.rows[i].onclick=function () {
-            var rIndex=this.rowIndex;
-            console.log(rIndex);
         }
 
-
-/*
-        var aa = Number(document.getElementById("myTable").rows[i].cells[1].innerText);
-        var bb = Number(document.getElementById("myTable").rows[i].cells[2].innerText);
-        var x = document.getElementById("myTable").rows[i+1].cells[3];
-        x.innerHTML = aa * bb;
-*/
     }
+}}
+)
+();
+
+editSelectedRow();
 
 
+
+function editData(){
+    var input1=inputs[0];
+    var input2=inputs[1];
+    var input3=inputs[2];
+    myTable.rows[rIndex].cells[0].innerHTML=input1.value;
+myTable.rows[rIndex].cells[1].innerHTML=input2.value;
+    myTable.rows[rIndex].cells[2].innerHTML=input3.value;
 
 }
-calculate();
 
 
-
-/*function doTest(){
-
-    var input1 = document.getElementById('form1').getElementsByTagName('input');
-    for(var i=0; i<input1.length; i++) {
-        results.push(input1[i].value);
-    }
-   return results;
-}
-/*var input2=
-var input3=*/
-var results=[];
 function addItem() {
-    var input1 = document.getElementById('form1').getElementsByTagName('input');
-var row=myTable.insertRow(tableLength);
-var cell=row.insertCell(0);
-var cell2=row.insertCell(1);
-var cell3=row.insertCell(2);
-var cell4=row.insertCell(3);
 
-
-    for(var i=0; i<input1.length; i++) {
-        results.push(input1[i].value);
+    if (inputs[0].value == "" || inputs[1].value<1 || inputs[2].value<1) {
+        alert('All item input must be correctly  filled!')
     }
-    cell.innerHTML=results[0];
-    cell2.innerHTML=results[1];
-    cell3.innerHTML=results[2];
-cell4.innerHTML='<button class="calcButton" type="button" >Calculate</button>';
+    else {
+        var results = [];
+        var row = myTable.insertRow(tableLength);
+        var cell = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        for (var i = 0; i < inputs.length; i++) {
+            results.push(inputs[i].value);
+        }
+        cell.innerHTML = results[0];
+        cell2.innerHTML = results[1];
+        cell3.innerHTML = results[2];
+
+        editSelectedRow();
+    }
+}
+function resetItem() {
+
+   myTable.deleteRow(rIndex);
+    tableLength--;
+}
+
+
+
+function formValidation(x) {
+   if( inputs[x].value < 1) {
+       alert('Inserted numbers must be positive!')
+   }
+   else{
+       return true;
+   }
+}
+
+
+function nameValidation(){
+    if (!/^[a-zA-Z]{3,10}$/.test(inputs[0].value)){
+        alert('Your item must contain only letters and be between 3 and 10 letters long');
+    }
+    else {
+        return true;
+    }
+
 
 }
 
-function displaySelectedRow() {
-    
+
+function ExportToExcel() {
+    $("#myTable").table2excel({
+        exclude: ".excludeThisClass",
+        name: "Worksheet Name",
+        filename: "SomeFile" //do not include extension
+    });
 }
-
-
-
-
 
 /*
 $(window).scroll(function() {
@@ -167,3 +202,12 @@ setInterval(function() {
         .appendTo('.section1');
 },  3000);
 */
+
+
+/*--------------EXPORTING-----------*/
+/*
+ function ExportToExcel(){
+ var htmltable= document.getElementById('myTable');
+ var html = htmltable.outerHTML;
+ window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+ }*/
