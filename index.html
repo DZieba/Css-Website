@@ -201,6 +201,7 @@
 
         <button onclick="countTotals()">Count Totals</button>
 <table id="myTable">
+
     <thead>
     <tr>
         <th>Item</th>
@@ -241,20 +242,26 @@
     </tbody>
 </table>
             <button onclick="ExportToExcel()">Export to Excel</button>
+            <button onclick="sum()">Sum up expenses</button>
+            <p id="result"></p>
         </div>
         <div class="inputPlace">
             <form id="form1">
             <label>Item</label>
             <input type="text" onblur="nameValidation()">
+                <span class="formAlert"></span>
             <label>Quantity</label>
-            <input type="number" onblur="formValidation(1)">
+            <input type="number" onblur="numbersValidation(1)">
+                <span class="formAlert"></span>
             <label>Price</label>
-            <input type="number" onblur="formValidation(2)">
+            <input type="number" onblur="numbersValidation(2)">
+                <span class="formAlert"></span>
 
+                <div class="buttonSet">
             <button id="addButton" type="button" onclick="addItem()">Add</button>
             <button type="button" onclick="editData()">Change</button>
             <button type="button" onclick="resetItem()">Reset</button>
-
+</div>
             </form>
         </div>
     </div>
