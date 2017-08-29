@@ -54,15 +54,15 @@ var tableLength = document.getElementById("myTable").rows.length;
 var rIndex = '';
 var inputs = document.getElementById('form1').getElementsByTagName('input');
 var formValidationAlert=document.getElementsByClassName('formAlert');
-function countTotals() {
 
+function countTotals() {
     for (var i = 1; i < document.getElementById("myTable").rows.length; i++) {
 
-        var aa = parseInt(myTable.rows[i].cells[1].innerText);
-        var bb = parseInt(myTable.rows[i].cells[2].innerText);
-        var x = myTable.rows[i].cells[3];
-        x.innerHTML = aa * bb;
-        console.log(x);
+        var quantityInputValue = parseInt(myTable.rows[i].cells[1].innerText);
+        var priceInputValue = parseInt(myTable.rows[i].cells[2].innerText);
+        var countResult = myTable.rows[i].cells[3];
+        countResult.innerHTML = quantityInputValue * priceInputValue;
+        console.log(countResult);
 
     }
 }
@@ -81,9 +81,9 @@ function countTotals(a,b) {
 
 */
 var editSelectedRow = (function () {
-        var input1 = inputs[0];
-        var input2 = inputs[1];
-        var input3 = inputs[2];
+        var itemInput = inputs[0];
+        var quantityInput = inputs[1];
+        var priceInput = inputs[2];
 
         return function () {
             for (var i = 0; i < document.getElementById('myTable').rows.length; i++) {
@@ -91,9 +91,9 @@ var editSelectedRow = (function () {
                 myTable.rows[i].onclick = function () {
 
                     rIndex = this.rowIndex;
-                    input1.value = this.cells[0].innerHTML;
-                    input2.value = Number(this.cells[1].innerHTML);
-                    input3.value = Number(this.cells[2].innerHTML);
+                    itemInput.value = this.cells[0].innerHTML;
+                    quantityInput.value = Number(this.cells[1].innerHTML);
+                    priceInput.value = Number(this.cells[2].innerHTML);
 
                 }
 
@@ -106,12 +106,12 @@ editSelectedRow();
 
 
 function editData() {
-    var input1 = inputs[0];
-    var input2 = inputs[1];
-    var input3 = inputs[2];
-    myTable.rows[rIndex].cells[0].innerHTML = input1.value;
-    myTable.rows[rIndex].cells[1].innerHTML = input2.value;
-    myTable.rows[rIndex].cells[2].innerHTML = input3.value;
+    var itemInput = inputs[0];
+    var quantityInput = inputs[1];
+    var priceInput = inputs[2];
+    myTable.rows[rIndex].cells[0].innerHTML = itemInput.value;
+    myTable.rows[rIndex].cells[1].innerHTML = quantityInput.value;
+    myTable.rows[rIndex].cells[2].innerHTML = priceInput.value;
 
 }
 
@@ -140,10 +140,9 @@ function addItem() {
         editSelectedRow();
     }
 }
+
 function resetItem() {
-
     myTable.deleteRow(rIndex);
-
 }
 
 function nameValidation() {
@@ -172,9 +171,6 @@ function numbersValidation(x) {
 }
 
 
-
-
-
 function ExportToExcel() {
     $("#myTable").table2excel({
         exclude: ".excludeThisClass",
@@ -187,7 +183,7 @@ var sumTotal = 0;
 function sum() {
 
     for (var i = 1; i < document.getElementById('myTable').rows.length; i++) {
-        sumTotal += Number(myTable.rows[i].cells[2].innerHTML);
+        sumTotal += Number(myTable.rows[i].cells[3].innerHTML);
     }
     document.getElementById('result').innerHTML = 'You have to pay ' + sumTotal;
 }
@@ -233,3 +229,18 @@ function sum() {
  var html = htmltable.outerHTML;
  window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
  }*/
+
+
+/*
+function createText(word) {
+var newWord=document.createElement('h2');
+var newWordValue=document.createTextNode(word);
+newWord.appendChild(newWordValue);
+document.body.appendChild(newWord);
+
+}
+*/
+
+
+
+
