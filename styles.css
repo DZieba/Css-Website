@@ -8,7 +8,7 @@ body{
 
 
     font-size: 18px;
-    color: rgb(26, 18, 143);
+    background-color: #195fb7;
 }
 .wrapper{
     height: auto;
@@ -31,6 +31,7 @@ body{
     position: fixed;
     flex-direction:row;
     width:100%;
+   
 }
 
 
@@ -44,8 +45,8 @@ body{
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
-    margin:15px auto;
-    border-right:1px solid #f4f4f8;
+    margin:30px auto;
+   
 }
 
 .nav.newClas1{
@@ -61,7 +62,7 @@ body{
     font-size:18px;
     text-transform: uppercase;
     text-decoration: none;
-    color: #000000;
+    color: #000000 ;
 }
 
 
@@ -73,6 +74,12 @@ body{
 .nav>li>a>.navTitle{
     visibility: visible;
     color: #fff;
+}
+
+
+a:hover,
+a:active{
+    background-color: #0e0d0d !important;
 }
 
 /*-------------END SIDEBAR---------------------*/
@@ -125,14 +132,17 @@ span.count{
 .section,
 .section1{
     background-color: rgb(16, 102, 97);
-height: 100vh;
+
     background-size: cover;
     background-attachment: fixed;
     display: flex;
 }
 
+.section{
+    padding: 30px;
+}
 .container{
-    width:1140px;
+    max-width:1140px;
     margin:auto;
     background-color: rgba(0, 0, 0, 0.75);
 }
@@ -325,7 +335,7 @@ flex:1
 /*-----------------SECTION3-----------------------------*/
 .section3{
 
-    height: 100vh;
+    padding:30px;
     background-color: #343434;
 }
 
@@ -339,7 +349,7 @@ flex:1
 }
 
 .sliderWrapper{
-    width:400px;
+    width:420px;
     height:650px;
     overflow: hidden;
     margin-left:50%;
@@ -352,10 +362,12 @@ flex:1
      box-shadow: 2px 2px 6px 1px grey;
 
 }
- ul.s-thumbs  img{
-     width:80px;
-     box-shadow: 1px 1px 5px rgba(0,0,0,.5);
- }
+
+ul.s-thumbs img {
+    width: 60px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    margin-bottom: 10px;
+}
  ul.s-thumbs a{
      position: relative;
      border:4px solid transparent;
@@ -381,8 +393,8 @@ ul.s-thumbs a:hover span{
  ul.s-slides a,
  ul.s-slides img
  {
-     width: 400px;
-     height: 400px;
+     width: 100%;
+   
 
  }
 ul.s-slides img{
@@ -416,6 +428,7 @@ ul.s-slides li.show:target{
     animation: show 3s;
     z-index:100;
 }
+
 
 @keyframes slideLeft {
     0% {
@@ -492,11 +505,13 @@ ul.s-slides li.show:target{
 
 
 .section4{
-    background-color: #195fb7;
-    height:100vh;
+    background-color: #0a3467;
+    padding:30px 0 80px;
 }
 .sectionTitle{
    text-align: center;
+   color: #fff;
+   padding:0 30px 20px;
 }
 .section4>.container{
     background-color: #fbfbff;
@@ -504,6 +519,10 @@ ul.s-slides li.show:target{
     flex-direction:row;
     justify-content: space-around;
     padding:40px;
+    border-radius:10px;
+}
+.section4 button{
+    border-radius: 5px;
 }
 .tablePlace{
     flex:3;
@@ -521,13 +540,9 @@ ul.s-slides li.show:target{
     flex:1;
 }
 #myTable{
-    width:90%;
-    
+    width:90%;  
+}
 
-}
-#myTable>tr{
-    padding-left: 15px;
-}
 tr:nth-child(even) {background: #dfdfdf
 }
 tr:nth-child(odd) {background: #FFF}
@@ -538,18 +553,17 @@ tr:hover{
     background-color: rgba(25, 95, 183, 0.58);
 }
 
-th,td {
-    padding:30px;
-    border-bottom: 1px solid #ddd;
-}
+
 th {
     background-color: rgba(24, 109, 196, 0.92);
     font-size: 120%;
     color: #e2e2e6;
     height:60px;
+    text-align: center !important;
 }
 td{
     height:50px;
+    text-align: center;
 
 }
 
@@ -562,6 +576,7 @@ td{
 }
 .inputPlace>#form1>input{
     height:30px;
+    border-radius: 3px;
 }
 .inputPlace>#form1>input:hover{
     background-color: #f2f2f6;
@@ -599,7 +614,34 @@ td{
 
 
 
+@media (max-width: 1000px) {
+    .section2>.container,
+    .section4>.container
+    {
+        flex-direction: column;
+        padding: 10px;
+    }
 
+    .sectionTitle {
+        
+        padding: 0 30px;
+    }
+
+.tablePlace{
+    margin-left: 8%;
+}
+.inputPlace{
+    align-self: center;
+}
+
+    .section4>.container
+    {
+    max-width: 94%;}
+    
+
+
+
+}
 
 
 
@@ -759,6 +801,29 @@ td{
         border:4px solid #11a81f;
 
     }
+
+}
+@media (max-width: 480px) {
+
+    .section{
+        padding:0;
+    }
+   
+
+    .tablePlace>button{
+        display: block;
+        margin: 15px auto;
+       
+    
+    }
+
+    .sliderWrapper {
+        max-width: 98%;
+       padding: 5px;
+       
+        
+    }
+
 
 
 }
